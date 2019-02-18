@@ -57,6 +57,11 @@ GROUP BY C.CustomerID
 ORDER BY TotalOrders DESC;
 
 ### list orders grouped by customer's city showing number of orders per city. Returns 58 Records with _Aachen_ showing 2 orders and _Albuquerque_ showing 7 orders.
+SELECT City, COUNT(City) as Total_Orders 
+FROM Customers 
+JOIN Orders ON Orders.CustomerID = Customers.CustomerId 
+GROUP BY City ORDER BY Total_Orders desc;
+
 
 ### delete all customers that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
 

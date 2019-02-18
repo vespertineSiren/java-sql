@@ -64,6 +64,7 @@ GROUP BY City ORDER BY Total_Orders desc;
 
 
 ### delete all customers that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
+DELETE from Customers where CustomerID not in (select CustomerID from Orders);
 
 ## Create Database and Table
 

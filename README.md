@@ -43,8 +43,18 @@ Set PostalCode = "11122"
 WHERE ContactName = 'Bilbo Baggins';
 
 ### list orders grouped by customer showing the number of orders per customer. _Rattlesnake Canyon Grocery_ should have 7 orders.
+SELECT CustomerName, Count(Orders.OrderID) as TotalOrders
+FROM Customers 
+JOIN Orders ON Orders.CustomerID = Customers.CustomerId 
+GROUP BY Customers.CustomerID
+ORDER BY CustomerName;
 
 ### list customers names and the number of orders per customer. Sort the list by number of orders in descending order. _Ernst Handel_ should be at the top with 10 orders followed by _QUICK-Stop_, _Rattlesnake Canyon Grocery_ and _Wartian Herkku_ with 7 orders each.
+SELECT CustomerName, COUNT(O.OrderID) as TotalOrders
+FROM Orders as O
+JOIN Customers C ON O.CustomerID = C.CustomerID
+GROUP BY C.CustomerID
+ORDER BY TotalOrders DESC;
 
 ### list orders grouped by customer's city showing number of orders per city. Returns 58 Records with _Aachen_ showing 2 orders and _Albuquerque_ showing 7 orders.
 

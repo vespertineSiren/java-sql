@@ -83,6 +83,6 @@ DELETE from Customers where CustomerID not in (select CustomerID from Orders);
   - account `budget` is required.
 
 
-CREATE TABLE accounts (/n
+CREATE TABLE accounts (
 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name STRING NOT NULL UNIQUE, budget NUMERIC NOT NULL 
-/n);
+);
